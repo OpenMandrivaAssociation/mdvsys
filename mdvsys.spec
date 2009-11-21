@@ -14,6 +14,7 @@ BuildRequires: subversion-tools
 BuildRequires: perl(Config::IniFiles)
 BuildRequires: perl(Date::Parse)
 BuildRequires: perl(Date::Format)
+BuildRequires: perl(Exception/Class)
 BuildRequires: perl(HTML::TableExtract)
 BuildRequires: perl(IO::String)
 BuildRequires: perl(LWP::UserAgent)
