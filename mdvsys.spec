@@ -1,7 +1,6 @@
-%define module	MDV-Repsys
-%define name	perl-%{module}
-%define version	2.0.6
-%define release	%mkrel 2
+%define name	mdvsys
+%define version	2.1.0
+%define release	%mkrel 1
 
 Name:		%{name}
 Version:	%{version}
@@ -9,8 +8,8 @@ Release:	%{release}
 Summary:	Interface to Mandriva build system
 License:	GPL
 Group:		Development/Perl
-Source0:	%{module}-%{version}.tar.gz
-Url:		http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/rpm/%{module}/
+Source0:	%{name}-%{version}.tar.gz
+Url:		http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/rpm/%{name}
 BuildRequires: subversion-tools
 BuildRequires: perl(Config::IniFiles)
 BuildRequires: perl(Date::Parse)
@@ -28,16 +27,13 @@ BuildRequires: perl(UNIVERSAL::require)
 BuildRequires: perl-version
 BuildRequires: perl(Test::Pod::Coverage)
 BuildRequires: perl(Test::Pod)
-Provides: mdvsys
-# http://qa.mandriva.com/show_bug.cgi?id=28388
-Requires: repsys
-Requires: subversion-tools
 Requires: perl(Youri::Package::RPM::Updater)
 Requires: perl(Youri::Package::RPM::Builder)
 Requires: perl(HTML::TableExtract)
 Requires: perl(IO::String)
 # (tv) lazy loaded (thus runtime error):
 Requires: perl(Net::LDAP)
+Obsoletes: perl-MDV-Repsys
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
@@ -45,7 +41,9 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}
 This is an interface to Mandriva build system.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q
+# fixed in SVN for next release
+rm -f t/pod-coverage.t
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor SYSCONFDIR=%{_sysconfdir}
@@ -58,13 +56,16 @@ This is an interface to Mandriva build system.
 rm -rf %{buildroot}
 %makeinstall_std
 
+install -d -m 755 %{buildroot}%{_sysconfdir}/bash_completion.d
+install -m 644 etc/mdvsys %{buildroot}%{_sysconfdir}/bash_completion.d
+
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc Changes README
-#%{_sysconfdir}/bash_completion.d/mdvsys
+%{_sysconfdir}/bash_completion.d/mdvsys
 %{_bindir}/*
 %{_mandir}/*/*
 %{perl_vendorlib}/MDV
