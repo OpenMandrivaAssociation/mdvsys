@@ -32,7 +32,6 @@ Requires: perl(Youri::Package::RPM::Updater)
 Requires: perl(Youri::Package::RPM::Builder)
 Requires: perl(HTML::TableExtract)
 Requires: perl(IO::String)
-Requires: repsys
 # (tv) lazy loaded (thus runtime error):
 Requires: perl(Net::LDAP)
 Obsoletes: perl-MDV-Repsys
