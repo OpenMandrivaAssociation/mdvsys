@@ -1,6 +1,6 @@
 %define name	mdvsys
 %define version	2.1.0
-%define release	%mkrel 1
+%define release	%mkrel 2
 
 Name:		%{name}
 Version:	%{version}
@@ -32,6 +32,7 @@ Requires: perl(Youri::Package::RPM::Updater)
 Requires: perl(Youri::Package::RPM::Builder)
 Requires: perl(HTML::TableExtract)
 Requires: perl(IO::String)
+Requires: repsys
 # (tv) lazy loaded (thus runtime error):
 Requires: perl(Net::LDAP)
 Obsoletes: perl-MDV-Repsys
