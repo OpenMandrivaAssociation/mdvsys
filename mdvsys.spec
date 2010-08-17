@@ -1,6 +1,6 @@
 %define name	mdvsys
-%define version	2.1.0
-%define release	%mkrel 2
+%define version	2.2.0
+%define release	%mkrel 1
 
 Name:		%{name}
 Version:	%{version}
@@ -43,30 +43,26 @@ This is an interface to Mandriva build system.
 
 %prep
 %setup -q
-# fixed in SVN for next release
-rm -f t/pod-coverage.t
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor SYSCONFDIR=%{_sysconfdir}
-%{__make}
+%configure2_5x
+%make
 
 %check
-%make test
+%make check
 
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-
-install -d -m 755 %{buildroot}%{_sysconfdir}/bash_completion.d
-install -m 644 etc/mdvsys %{buildroot}%{_sysconfdir}/bash_completion.d
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc Changes README
+%doc NEWS README
 %{_sysconfdir}/bash_completion.d/mdvsys
+%config(noreplace) %{_sysconfdir}/mdvsys.conf
 %{_bindir}/*
 %{_mandir}/*/*
-%{perl_vendorlib}/MDV
+%{_datadir}/mdvsys
