@@ -25,6 +25,7 @@ BuildRequires: perl(UNIVERSAL::require)
 BuildRequires: perl-version
 BuildRequires: perl(Test::Pod::Coverage)
 BuildRequires: perl(Test::Pod)
+Requires: perl(Youri::Package::RPM)
 Requires: perl(Youri::Package::RPM::Updater)
 Requires: perl(Youri::Package::RPM::Builder)
 Requires: perl(HTML::TableExtract)
