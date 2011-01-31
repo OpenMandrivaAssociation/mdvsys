@@ -1,11 +1,10 @@
 Name:		mdvsys
-Version:	2.2.0
-Release:	%mkrel 3
+Version:	2.3.0
+Release:	%mkrel 1
 Summary:	Interface to Mandriva build system
 License:	GPL
 Group:		Development/Perl
 Source0:	%{name}-%{version}.tar.gz
-Patch0:		mdvsys-2.2.0-rpm5-port.patch
 Url:		http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/rpm/%{name}
 BuildRequires: subversion-tools
 BuildRequires: perl(Config::IniFiles)
@@ -41,18 +40,13 @@ This is an interface to Mandriva build system.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %configure2_5x
 %make
 
 %check
-# skip check suite when building on rpm 4, as some parts of it depends on
-# rpm 5.3 to be installed
-# disable for now to workaround issues triggered by test suite
-#[ "`rpm --version|sed -e  's/^.* \([0-9]\+\).*/\1/'`" != 4 ] && \
-#%make check
+%make check
 
 %install
 rm -rf %{buildroot}
