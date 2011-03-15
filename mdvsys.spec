@@ -1,6 +1,6 @@
 Name:		mdvsys
 Version:	2.3.0
-Release:	%mkrel 3
+Release:	%mkrel 4
 Summary:	Interface to Mandriva build system
 License:	GPL
 Group:		Development/Perl
@@ -32,6 +32,7 @@ Requires: perl(HTML::TableExtract)
 Requires: perl(IO::String)
 # (tv) lazy loaded (thus runtime error):
 Requires: perl(Net::LDAP)
+Requires: mdv-youri-core
 Obsoletes: perl-MDV-Repsys
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}
