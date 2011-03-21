@@ -1,6 +1,6 @@
 Name:		mdvsys
 Version:	2.3.0
-Release:	%mkrel 4
+Release:	%mkrel 5
 Summary:	Interface to Mandriva build system
 License:	GPL
 Group:		Development/Perl
@@ -25,6 +25,7 @@ BuildRequires: perl-version
 BuildRequires: perl(Test::Pod::Coverage)
 BuildRequires: perl(Test::Pod)
 Requires: perl(Youri::Package) >= 0.2.2
+Requires: perl-Youri-Package >= 0.2.2
 Requires: perl(Youri::Package::RPM)
 Requires: perl(Youri::Package::RPM::Updater)
 Requires: perl(Youri::Package::RPM::Builder)
