@@ -5,7 +5,7 @@ Summary:	Interface to Mandriva build system
 License:	GPL
 Group:		Development/Perl
 Source0:	%{name}-%{version}.tar.gz
-Url:		http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/rpm/%{name}
+Url:		https://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/rpm/%{name}
 BuildRequires: subversion-tools
 BuildRequires: perl(Config::IniFiles)
 BuildRequires: perl(Date::Parse)
