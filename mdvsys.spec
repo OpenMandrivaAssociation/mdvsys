@@ -6,6 +6,11 @@ License:	GPL
 Group:		Development/Perl
 Source0:	%{name}-%{version}.tar.gz
 Url:		https://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/rpm/%{name}
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: subversion-tools
 BuildRequires: perl(Config::IniFiles)
 BuildRequires: perl(Date::Parse)
