@@ -1,6 +1,6 @@
 Name:		mdvsys
 Version:	2.3.0
-Release:	%mkrel 5
+Release:	6
 Summary:	Interface to Mandriva build system
 License:	GPL
 Group:		Development/Perl
